@@ -89,7 +89,8 @@ def convert_bfm_to_onnx(bfm_onnx_fp, shape_dim=40, exp_dim=10):
             'alpha_shp': [0],
             'alpha_exp': [0],
         },
-        do_constant_folding=True
+        do_constant_folding=True,
+        dynamo=False,
     )
     print(f'Convert {bfm_fp} to {bfm_onnx_fp} done.')
 

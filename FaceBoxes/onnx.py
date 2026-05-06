@@ -30,6 +30,7 @@ def convert_to_onnx(onnx_path):
             'input': [0, 2, 3],
             'output': [0]
         },
-        do_constant_folding=True
+        do_constant_folding=True,
+        dynamo=False,
     )
     print(f'Convert {pretrained_path} to {onnx_path} done.')

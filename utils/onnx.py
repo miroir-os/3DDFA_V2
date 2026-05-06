@@ -34,7 +34,12 @@ def convert_to_onnx(**kvs):
         wfp,
         input_names=['input'],
         output_names=['output'],
-        do_constant_folding=True
+        dynamic_axes={
+            'input': {0: 'batch'},
+            'output': {0: 'batch'},
+        },
+        do_constant_folding=True,
+        dynamo=False,
     )
     print(f'Convert {checkpoint_fp} to {wfp} done.')
     return wfp
